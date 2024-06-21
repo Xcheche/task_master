@@ -12,8 +12,11 @@ def index(request):
         if form.is_valid():
             form.save()
             return redirect("/")
-    form = TaskForm()
-    tasks = Task.objects.filter(is_done=False)
+    else:
+        form = TaskForm()
+
+    # tasks = Task.objects.filter(is_done=False)
+    tasks = Task.objects.all()
     context = {"tasks": tasks, "form": form}
 
     return render(request, "task/index.html", context=context)
