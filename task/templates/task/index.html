@@ -13,18 +13,24 @@
 </div>
 <div class="space-y-4">
   {% for task in tasks %} <br />
+  <!--looping whole task-->
   {% if not task.is_done %} <br />
+  <!--checking if task is not done-->
   <div class="p-4 bg-teal-400">
     <h2 class="text-xl">{{ task.title }}</h2>
+    <!--task title-->
     <br />
 
     <p>{{ task.description }}</p>
+    <!--task description-->
+    <!--Link for marking task as done-->
     <div class="mt-6 flex flex-row items-center space-x-4">
       <a
         href="{% url 'mark_as_done' task.id %}"
         class="py-2 px-6 bg-teal-800 text-white"
         >Mark as Done</a
       >
+      <!--Link for deleting task-->
       <a
         href="{% url 'delete_task' task.id %}"
         class="py-2 px-6 bg-amber-800 text-white"
@@ -32,24 +38,29 @@
       >
     </div>
   </div>
-  {% endif %} <br />
+  {% endif %} <br /><!--end of if task is not done-->
   {% endfor %}
 
   <h2 class="text-xl">Tasks Done</h2>
+  <!--heading for tasks done-->
 
-  {% for task in tasks %} <br />
-  {% if task.is_done %} <br />
+  {% for task in tasks %} <br /><!--looping whole task-->
+  {% if task.is_done %} <br /><!--checking if task is done-->
   <div class="p-4 bg-teal-400">
     <h2 class="text-xl">{{ task.title }}</h2>
+    <!--task title-->
     <br />
 
     <p>{{ task.description }}</p>
+    <!--task description-->
     <div class="mt-6 flex flex-row items-center space-x-4">
+      <!--Link for marking task as done-->
       <a
         href="{% url 'mark_as_done' task.id %}"
         class="py-2 px-6 bg-teal-800 text-white"
         >Mark as Done</a
       >
+      <!--Link for deleting task-->
       <a
         href="{% url 'delete_task' task.id %}"
         class="py-2 px-6 bg-amber-800 text-white"
@@ -57,7 +68,7 @@
       >
     </div>
   </div>
-  {% endif %} <br />
-  {% endfor %}
+  {% endif %} <br /><!--end of if task is done-->
+  {% endfor %}<!--end of loop-->
 </div>
 {% endblock %}
