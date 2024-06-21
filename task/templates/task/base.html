@@ -1,12 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
-</head>
-<body>
-  <h1 class="text-3xl font-bold underline">
-   {% block content %}{% endblock %}
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title%} Task_Master {% endblock title %}</title>
+  </head>
+  <body>
+    <nav class="p-6 bg-teal-700">
+      <a href="{% url 'index' %}" class="text-xl">Task_Master</a>
+    </nav>
+    <main class="p-6">
+      <br />
+      {% block content %} {% endblock %}
+    </main>
+  </body>
 </html>
